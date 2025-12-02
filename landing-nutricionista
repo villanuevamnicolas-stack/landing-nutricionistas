@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutricionistas: Llená tu Agenda Sin Depender de Obras Sociales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+        
+        .urgency-banner {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        .hero {
+            background: linear-gradient(to bottom, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 80px 30px 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            line-height: 1.3;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .video-container {
+            max-width: 900px;
+            margin: -70px auto 50px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            background: #000;
+        }
+        
+        .video-placeholder {
+            padding-bottom: 56.25%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-text {
+            position: absolute;
+            color: white;
+            font-size: 1.6rem;
+            font-weight: 500;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .cta-primary {
+            background: #2563eb;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 18px 48px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 0;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+        
+        .cta-primary:hover {
+            background: #1d4ed8;
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+            transform: translateY(-1px);
+        }
+        
+        .mini-text {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-top: 12px;
+        }
+        
+        .section {
+            padding: 80px 30px;
+            background: white;
+        }
+        
+        .section-alt {
+            background: #f8fafc;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #1e3a8a;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+        
+        .pain-section {
+            background: #fef2f2;
+            border-top: 3px solid #dc2626;
+            border-bottom: 3px solid #dc2626;
+        }
+        
+        .pain-section h2 {
+            color: #991b1b;
+            font-size: 2.3rem;
+        }
+        
+        .pain-list {
+            list-style: none;
+            max-width: 750px;
+            margin: 40px auto;
+        }
+        
+        .pain-list li {
+            padding: 16px 24px;
+            margin: 12px 0;
+            background: white;
+            border-left: 3px solid #dc2626;
+            font-size: 1.05rem;
+            color: #334155;
+        }
+        
+        .highlight-box {
+            background: white;
+            border: 2px solid #2563eb;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 750px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            line-height: 1.6;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+        
+        .feature-card:hover {
+            border-color: #2563eb;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.1);
+        }
+        
+        .feature-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #475569;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .results-box {
+            background: #f0fdf4;
+            padding: 50px 40px;
+            margin: 50px auto;
+            max-width: 850px;
+            border-radius: 6px;
+            border: 2px solid #10b981;
+        }
+        
+        .results-list {
+            list-style: none;
+            font-size: 1.2rem;
+        }
+        
+        .results-list li {
+            padding: 14px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #334155;
+        }
+        
+        .results-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .guarantee-box {
+            background: #1e3a8a;
+            color: white;
+            padding: 60px 50px;
+            margin: 50px auto;
+            max-width: 850px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        
+        .guarantee-box h3 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        
+        .guarantee-box p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 50px 45px;
+            margin: 50px auto;
+            max-width: 800px;
+            border-radius: 6px;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .testimonial h4 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.15rem;
+            color: #475569;
+            line-height: 1.8;
+        }
+        
+        .scarcity-badge {
+            background: #dc2626;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 15px 0;
+            letter-spacing: 0.3px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(to bottom, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 100px 30px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .cta-section p {
+            font-size: 1.4rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+        }
+        
+        .cta-section .cta-primary {
+            background: white;
+            color: #1e3a8a;
+            font-size: 1.4rem;
+        }
+        
+        .cta-section .cta-primary:hover {
+            background: #f8fafc;
+        }
+        
+        .footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 50px 30px;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 8px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            
+            .video-text {
+                font-size: 1.3rem;
+            }
+            
+            .cta-primary {
+                font-size: 1.1rem;
+                padding: 16px 36px;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="urgency-banner">
+        Cupos limitados para este mes — Solo 7 plazas disponibles
+    </div>
+    
+    <div class="hero">
+        <div class="container">
+            <h1>Nutricionistas: llená tu agenda sin depender de obras sociales</h1>
+            <h2>Mirá cómo duplicar tus pacientes en 90 días sin trabajar más horas y sin estar todo el día en el celular.</h2>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="video-container">
+            <div class="video-placeholder">
+                <div class="video-text">
+                    "Si sos nutricionista y querés crecer, mirá esto."
+                    <div style="margin-top: 20px; font-size: 1rem; opacity: 0.8;">[Colocá tu video aquí]</div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 50px 0;">
+            <span class="scarcity-badge">Solo quedan 7 cupos disponibles</span>
+            <br>
+            <a href="TU_LINK_GOOGLE_FORM" class="cta-primary">QUIERO RECIBIR MI AGENTE</a>
+            <p class="mini-text">Completás el formulario y te envío tu agente por WhatsApp.</p>
+        </div>
+    </div>
+    
+    <div class="section pain-section">
+        <div class="container">
+            <h2>¿Estás estancada entre USD 1.500–3.000 al mes?</h2>
+            <p class="section-subtitle">
+                No es falta de talento. No es falta de estudios. No es falta de ganas.<br>
+                <strong style="color: #991b1b;">Es que estás compitiendo con profesionales que tienen sistemas, no fuerza de voluntad.</strong>
+            </p>
+            
+            <h3 style="text-align: center; margin: 50px 0 30px; font-size: 1.8rem; color: #991b1b; font-weight: 600;">Y vos hoy estás lidiando con:</h3>
+            
+            <ul class="pain-list">
+                <li>Pacientes que cancelan o no se presentan.</li>
+                <li>Mensajes que llegan todo el día y no podés responder.</li>
+                <li>Poco tiempo para crear contenido.</li>
+                <li>Miedo de subir precios.</li>
+                <li>Obras sociales que te pagan tarde y mal.</li>
+                <li>Compararte con colegas que crecen en redes mientras vos estás atendiendo 10 horas seguidas.</li>
+                <li>La sensación constante de "estoy trabajando más y ganando lo mismo".</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="container">
+            <h2>El problema NO sos vos</h2>
+            <div class="highlight-box">
+                El problema es que intentás crecer sin sistema.
+            </div>
+            <p style="text-align: center; font-size: 1.25rem; margin: 40px auto; max-width: 700px; line-height: 1.9; color: #475569;">
+                Sin sistema: perdés pacientes, perdés tiempo, perdés dinero.<br>
+                <strong style="color: #1e3a8a; font-size: 1.4rem;">Y encima te sobrecargás.</strong>
+            </p>
+        </div>
+    </div>
+    
+    <div class="section section-alt">
+        <div class="container">
+            <h2>El sistema que hace por vos lo que hoy te consume horas</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Agenda automática por WhatsApp</h3>
+                    <p>Responde consultas en 2 segundos con mensajes humanos generados por IA.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Funnel con pre-calificación</h3>
+                    <p>Solo llegan pacientes que pueden pagar honorarios privados.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Panel de control</h3>
+                    <p>Ves todo: consultas, reservas, facturación y seguimiento.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Recordatorios inteligentes</h3>
+                    <p>Menos no-shows, menos pérdidas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Reactivación automática</h3>
+                    <p>Recuperá pacientes fríos que hoy ya tenés perdidos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Contenido diario listo</h3>
+                    <p>Historias y posts listos para publicar sin que pierdas tiempo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="container">
+            <h2>Resultados en 90 días</h2>
+            <div class="results-box">
+                <ul class="results-list">
+                    <li>+30% a +50% de facturación.</li>
+                    <li>Agenda llena sin quemarte.</li>
+                    <li>Respuestas instantáneas sin estar en WhatsApp.</li>
+                    <li>Contenido diario sin generar nada.</li>
+                    <li>Honorarios privados.</li>
+                    <li>Posicionamiento premium.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section section-alt">
+        <div class="container">
+            <div class="guarantee-box">
+                <h3>Garantía</h3>
+                <p>"Si en 30 días no llenamos tu agenda con 15 pacientes nuevos, trabajo gratis hasta lograrlo."</p>
+                <p style="margin-top: 24px; font-weight: 600;">El riesgo es mío, no tuyo.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="container">
+            <h2>¿Quién soy?</h2>
+            <p class="section-subtitle">
+                Soy <strong>Nicolás, Ingeniero Industrial</strong>. 7 años automatizando procesos críticos.<br>
+                Hoy trabajo exclusivamente con nutricionistas.
+            </p>
+            
+            <div class="testimonial">
+                <h4>Caso real:</h4>
+                <p class="testimonial-text">
+                    "Cristina (Nutrición Oncológica) pasó de 6 horas a 3 minutos de respuesta, +38% facturación en 90 días y el 70% de nuevas consultas eran mensajes que antes no veía."
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cta-section">
+        <div class="container">
+            <h2>¿Lista para transformar tu consulta?</h2>
+            <p>Dejá de trabajar más y empezá a facturar más</p>
+            
+            <span class="scarcity-badge">Últimas 7 plazas disponibles</span>
+            <br>
+            <a href="TU_LINK_GOOGLE_FORM" class="cta-primary">QUIERO RECIBIR MI AGENTE</a>
+            <p style="margin-top: 20px; font-size: 1rem; opacity: 0.9;">Completás el formulario y te envío tu agente por WhatsApp en menos de 24hs.</p>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p style="font-size: 1.1rem; margin-bottom: 12px;">&copy; 2025 - Sistema de Automatización para Nutricionistas</p>
+        <p>Transformamos consultas tradicionales en negocios digitales escalables</p>
+    </div>
+</body>
+</html>
